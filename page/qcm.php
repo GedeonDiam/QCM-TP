@@ -1,30 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liste déroulante</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
-</head>
 
-<body>
-  <header>
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid">
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-list"></i>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Profil</a></li>
-            <li><a class="dropdown-item text-danger" href="index.php?page=deconnexion">Déconnexion</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+
 
   <div class="container mt-5">
     <!-- En-tête avec le titre du quiz -->
@@ -66,14 +42,4 @@
     </div>
   </div>
 
-  <!-- Intégration des scripts JavaScript de Bootstrap -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-
-</html>

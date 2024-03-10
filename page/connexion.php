@@ -88,10 +88,12 @@ button:hover {
 
         $req = ("SELECT * FROM users WHERE email = '$email' AND mdp = '$mdp'");
         $result = mysqli_query($connexion, $req);
-        
+   
         if(mysqli_num_rows($result) > 0) {
-            // L'utilisateur est authentifié avec succès
-           header("location: index.php?page=qcm");
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION["id_users"] = $row["id_users"];
+            $_SESSION["email"]=$row["email"];
+      header("location: index.php?page=qcm");
         } else {
             // L'utilisateur n'est pas authentifié
             echo "Échec de l'authentification. Veuillez vérifier vos informations de connexion.";

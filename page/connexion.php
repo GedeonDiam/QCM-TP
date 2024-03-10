@@ -76,7 +76,7 @@ button:hover {
             </div>
             <button type="submit" name="bouton">Se connecter</button>
 
-            <P>Vous n'avez pas de compte? <a href="inscription.php">Inscrivez-vous</a></P>
+            <P>Vous n'avez pas de compte? <a href="index.php?page=inscription">Inscrivez-vous</a></P>
         </form>
     </div>
     </div>
@@ -86,7 +86,7 @@ button:hover {
         $email= $_POST["email"];
         $mdp= $_POST["mdp"];
 
-        $req = ("SELECT * FROM user WHERE email = '$email' AND mdp = '$mdp'");
+        $req = ("SELECT * FROM users WHERE email = '$email' AND mdp = '$mdp'");
         $result = mysqli_query($connexion, $req);
         
         if(mysqli_num_rows($result) > 0) {

@@ -14,8 +14,6 @@ include('service/connect.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../style/inscription.css">
-    <link rel="stylesheet" href="../style/connexion.css">
 </head>
 <body>
 <?php
@@ -33,11 +31,16 @@ switch ($page) {
         include "page/inscription.php";
         break;
     case "deconnexion":
-        include "page/deconnexion.php";
+       session_destroy();
+       header("location:index.php");
+
         break;
         case "qcm":
             include "page/qcm.php";
             break;
+            case "questionnaire":
+                include "page/questionnaire.php";
+                break;
     default:
         include "page/connexion.php";
         break;

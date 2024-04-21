@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 09 mars 2024 à 22:09
+-- Généré le : dim. 21 avr. 2024 à 09:52
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `qcm`
 --
-CREATE DATABASE IF NOT EXISTS `qcm` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `qcm`;
 
 -- --------------------------------------------------------
 
@@ -267,6 +265,28 @@ INSERT INTO `reponses` (`idr`, `idq`, `libeller`, `verite`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `resultat`
+--
+
+DROP TABLE IF EXISTS `resultat`;
+CREATE TABLE IF NOT EXISTS `resultat` (
+  `id_resultat` int NOT NULL AUTO_INCREMENT,
+  `id_users` int NOT NULL,
+  `correct` int NOT NULL,
+  `total_reponse` int NOT NULL,
+  PRIMARY KEY (`id_resultat`)
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `resultat`
+--
+
+INSERT INTO `resultat` (`id_resultat`, `id_users`, `correct`, `total_reponse`) VALUES
+(22, 3, 3, 10);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -274,20 +294,20 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id_users` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
-  `penom` varchar(50) NOT NULL,
-  `mail` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `prenom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `tel` varchar(50) NOT NULL,
   `mdp` varchar(50) NOT NULL,
+  `type` enum('admin','utilisateur') NOT NULL,
   PRIMARY KEY (`id_users`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id_users`, `nom`, `penom`, `mail`, `tel`, `mdp`) VALUES
-(1, 'adenle', 'hamid', 'hamid@gmail.com', '06278639', 'hamid'),
-(2, 'sadikou', 'hamid', 'sadikou@gmail.com', '08765467', 'sadikou');
+INSERT INTO `users` (`id_users`, `nom`, `prenom`, `email`, `tel`, `mdp`, `type`) VALUES
+(7, 'diam', 'Gedeon', 'diam@gmail.com', '0618248536', 'diam', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

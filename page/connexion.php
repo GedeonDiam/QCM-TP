@@ -93,7 +93,13 @@ button:hover {
             $row = mysqli_fetch_assoc($result);
             $_SESSION["id_users"] = $row["id_users"];
             $_SESSION["email"]=$row["email"];
+            $_SESSION["type"] = $row["type"];
+
+            if($_SESSION["type"] == "utilisateur"){
       header("location: index.php?page=qcm");
+            }else{
+                
+            }
         } else {
             // L'utilisateur n'est pas authentifié
             echo "Échec de l'authentification. Veuillez vérifier vos informations de connexion.";

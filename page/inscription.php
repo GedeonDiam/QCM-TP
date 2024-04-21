@@ -7,11 +7,31 @@
         $mail = $_POST['mail'];
         $tel = $_POST['tel'];
         $mdp = $_POST['mdp'];
+        $type = $_POST['type'];
         //je lance la requête
-        $req = "INSERT INTO users (nom,prenom,email,tel,mdp) VALUES ('$nom', '$prenom', '$mail', '$tel', '$mdp')";
+        $req = "INSERT INTO users (nom,prenom,email,tel,mdp, type) VALUES ('$nom', '$prenom', '$mail', '$tel', '$mdp', '$type')";
+        
         //j'exécute la requête
         $execute = mysqli_query($connexion, $req);
-            header("location: index.php?page=qcm");
+
+        $req = ("SELECT * FROM users WHERE email = '$mail' AND mdp = '$mdp'");
+        $result = mysqli_query($connexion, $req);
+   
+        if(mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION["id_users"] = $row["id_users"];
+            $_SESSION["email"]=$row["email"];
+            $_SESSION["type"] = $row["type"];
+            if($type === "utilisateur"){
+                header("location: index.php?page=qcm");
+            }else{
+
+            }
+
+        } else {
+            // L'utilisateur n'est pas authentifié
+            echo "Échec de l'authentification. Veuillez vérifier vos informations de connexion.";
+        }
    }
 ?>
 
@@ -93,6 +113,13 @@ button:hover {
             <div class="form-group">
                 <label for="mail">Adresse email</label>
                 <input type="email" id="mail" name="mail" required>
+            </div>
+            <div class="form-group">
+                <label for="mail">Type</label>
+                <select id="type" class="" name="type" required>
+                    <option value="utilisateur">Utilisateur</option>
+                    <option value="admin">Admin</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="tel">Telephone</label>

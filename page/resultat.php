@@ -8,7 +8,6 @@
             <?php
             $score = 0;
             $totalQuestions = 0;
-            $incorrectQuestions = array(); // Stocke les identifiants des questions incorrectes
 
             foreach ($_POST as $idq => $idr) {
                 $req = "SELECT * FROM questions WHERE idq= $idq";
@@ -42,18 +41,10 @@
                     }
                 }
             }
-            foreach ($incorrectQuestions as $idq) {
-                // Récupérez l'ID de l'utilisateur à partir de $_SESSION 
-                $userId = $_SESSION['id_users'];
-                
-                // Assurez-vous que $idr est récupéré à partir de la boucle foreach précédente
-                $idr = $_POST[$idq];
-            
-                // Insérez les données dans la table resultat 
-                $insertQuery = "INSERT INTO resultat (id_users, id_questions, user_answer, is_correct) VALUES ('$userId', '$idq', '$idr', false)";
-                mysqli_query($connexion, $insertQuery);
-            }
-            
+            $userId = $_SESSION['id_users'];
+            $insertQuery = "INSERT INTO resultat (id_users, correct,total_reponse ) VALUES ('$userId', '$score', '$totalQuestions')";
+            mysqli_query($connexion, $insertQuery);
+
             ?>
         </ol>
         <hr>

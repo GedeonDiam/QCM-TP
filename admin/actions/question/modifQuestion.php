@@ -30,12 +30,12 @@ if(isset($_POST['envoye'])){
 
         echo "
         <select class='form-select' name='niveau'>
-            <option value=".($row["niveau"])."selected >".$text."</option>
-            <option value='0'>Facile</option>
-            <option value='1'>Difficile</option>
+            <option value='' disabled selected>Choisissez une option</option>
+            <option value='0'" . ($row["niveau"] == "0" ? " selected" : "") . ">Facile</option>
+            <option value='1'" . ($row["niveau"] == "1" ? " selected" : "") . ">Difficile</option>
         </select>";
-
         ?>
+ 
     </div>
     <div class="mb-3">
         <label for="libelle" class="form-label">Libelle</label>

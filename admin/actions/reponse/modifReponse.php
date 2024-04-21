@@ -32,9 +32,9 @@ if(isset($_POST['envoye'])){
 
         echo "
         <select class='form-select' name='verite'>
-            <option value=".($row["verite"])." selected >".$text."</option>
-            <option value='0'>Faux</option>
-            <option value='1'>Vrai</option>
+            <option value='' disabled>Choisissez une option</option> <!-- Option désactivée pour inviter l'utilisateur à choisir -->
+            <option value='0'" . ($row["verite"] === "0" ? " selected" : "") . ">Faux</option>
+            <option value='1'" . ($row["verite"] === "1" ? " selected" : "") . ">Vrai</option>
         </select>";
 
         ?>

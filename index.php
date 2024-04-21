@@ -57,8 +57,55 @@ include('service/connect.php');
                 include "page/resultat.php";
                 break;
             }
-      
-                
+        case "admin":
+            if(isset ($_SESSION["id_users"]) && $_SESSION["email"] && $_SESSION["type"] == "admin"){
+                include "page/header.php";
+                include "./admin/pages/adminQuestion.php";
+                break;
+            }
+        case "modifier":
+            if(isset ($_SESSION["id_users"]) && $_SESSION["email"] && $_SESSION["type"] == "admin"){
+                include "page/header.php";
+                include "./admin/actions/question/modifQuestion.php";
+                break;
+            }
+        case "supprimer":
+            if(isset ($_SESSION["id_users"]) && $_SESSION["email"] && $_SESSION["type"] == "admin"){
+                include "page/header.php";
+                include "./admin/actions/question/suppQuestion.php";
+                break;
+            }
+        case "ajouter":
+            if(isset ($_SESSION["id_users"]) && $_SESSION["email"] && $_SESSION["type"] == "admin"){
+                include "page/header.php";
+                include "./admin/actions/question/ajoutQuestion.php";
+                break;
+            }
+        case "ajouter_reponse":
+            if(isset ($_SESSION["id_users"]) && $_SESSION["email"] && $_SESSION["type"] == "admin"){
+                include "page/header.php";
+                include "./admin/actions/reponse/ajoutReponse.php";
+                break;
+            }
+        case "modifier_reponse":
+            if(isset ($_SESSION["id_users"]) && $_SESSION["email"] && $_SESSION["type"] == "admin"){
+                include "page/header.php";
+                include "./admin/actions/reponse/modifReponse.php";
+                break;
+            }
+        case "supprimer_reponse":
+            if(isset ($_SESSION["id_users"]) && $_SESSION["email"] && $_SESSION["type"] == "admin"){
+                include "page/header.php";
+                include "./admin/actions/reponse/suppReponse.php";
+                break;
+            }
+        case "resultat_admin":
+            if(isset ($_SESSION["id_users"]) && $_SESSION["email"] && $_SESSION["type"] == "admin"){
+                include "page/header.php";
+                include "./admin/pages/adminResultat.php";
+                break;
+            }
+        
         default:
             include "page/connexion.php";
             break;

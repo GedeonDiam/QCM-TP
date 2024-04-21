@@ -64,7 +64,7 @@ button:hover {
 <body>
     <div class="centre">
     <div class="container">
-        <form action="#" method="POST">
+        <form action="" method="POST">
             <h2>Connexion</h2>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -96,9 +96,9 @@ button:hover {
             $_SESSION["type"] = $row["type"];
 
             if($_SESSION["type"] == "utilisateur"){
-      header("location: index.php?page=qcm");
+                header("location: index.php?page=qcm");
             }else{
-                
+                header("location: index.php?page=admin");
             }
         } else {
             // L'utilisateur n'est pas authentifié
